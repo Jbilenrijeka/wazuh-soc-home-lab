@@ -24,6 +24,8 @@ This was an authorized, controlled test on my own Windows endpoint using the ded
 
 ## Evidence
 Windows recorded two failed logons at 13:13:40 and 13:13:56 local time.
+![PowerShell showing Windows Security Event ID 4625 for soc-test at 13:13:40](<Screenshot (690).png>)
+
 
 Wazuh displayed two matching alerts at:
 - 13:13:41.184
@@ -31,6 +33,8 @@ Wazuh displayed two matching alerts at:
 
 Both alerts used rule 60122:
 "Logon Failure - Unknown user or bad password"
+![Wazuh Threat Hunting showing two failed-logon alerts](<Screenshot 2026-11-06 132114.png>)
+
 
 The inspected Wazuh document contained:
 
@@ -46,6 +50,11 @@ The inspected Wazuh document contained:
 | Wazuh rule ID | 60122 | Failed authentication detection |
 | Wazuh rule level | 5 | Alert severity |
 | Windows event record ID | 4082558 | Identifier of the inspected Windows record |
+
+![Wazuh Document Details showing Windows Event ID 4625 for soc-test](<Screenshot 2026-11-06 132732.png>)
+
+![Wazuh alert details showing rule 60122, level 5, and the alert timestamp](<Screenshot 2026-11-06 132811.png>)
+
 
 ## Timestamp Correlation
 The inspected event had Windows system time:
