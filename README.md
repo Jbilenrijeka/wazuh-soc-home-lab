@@ -3,18 +3,12 @@
 A hands-on learning project focused on Windows security monitoring,
 alert triage, and evidence-based investigation using Wazuh.
 
-## Current Status — 2 November 2026
+## Current Status
 
-Initial deployment and Windows endpoint connection completed.
-
-- Installed the Wazuh server, indexer, and dashboard in a Linux virtual machine.
-- Connected a Windows 11 endpoint using the Wazuh agent.
-- Confirmed that ASUSwin11 (agent ID 001) appeared as active in the dashboard.
-- Reviewed a "Wazuh agent stopped" alert: rule ID 506, level 3.
-- Captured screenshots documenting installation, agent status, and alert details.
-
-Controlled failed-logon testing and end-to-end verification of Windows
-Security alerts remain pending.
+- Deployed the Wazuh manager, indexer, and dashboard in a Linux virtual machine and connected a Windows 11 endpoint.
+- Reviewed an agent-stop alert (Wazuh rule `506`) and documented the findings and limitations.
+- Validated Windows Security event collection and Wazuh detection on 6 November 2026 through a controlled failed-logon test. Windows recorded two Event ID `4625` events, and Wazuh displayed two matching alerts under rule `60122`. See the [Windows Failed Logon Investigation](docs/failed-logon-investigation.md).
+- Updated AnyIO on the Windows endpoint and reviewed the corresponding Wazuh resolution events. See the [AnyIO Vulnerability Remediation](docs/anyio-vulnerability-remediation.md) report.
 
 ## Project Goals
 
@@ -131,7 +125,6 @@ it does not prove that an attacker disabled the agent.
 - The screenshots do not establish the exact duration of any monitoring gap.
 - Active agent status does not prove that Windows Security events
   are being collected and generating alerts.
-- A controlled failed-logon detection test has not yet been completed.
 
 ## Lessons Learned
 
@@ -145,10 +138,6 @@ it does not prove that an attacker disabled the agent.
 
 - Document the Linux distribution and VM resource allocation.
 - Expand installation and troubleshooting notes.
-- Perform a controlled failed-logon test using a dedicated test account.
-- Confirm the resulting event in Windows Event Viewer.
-- Verify whether the corresponding alert appears in Wazuh.
-- Document the results and investigate any collection or detection gaps.
 
 ## Planned Documentation
 
